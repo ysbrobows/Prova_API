@@ -51,11 +51,9 @@ namespace Confitec.Infra.Data.Repository
         {
             IQueryable<Usuario> query = _context.Usuarios;
 
-            var result = query.AsNoTracking()
+            return await query.AsNoTracking()
                 .Where(x => x.Id == id)
-                        .FirstOrDefault();
-
-            return result;
+                        .FirstOrDefaultAsync();
         } 
     }
 }
